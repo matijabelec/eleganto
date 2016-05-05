@@ -1,0 +1,13 @@
+.DS_Store
+composer.phar
+composer.lock
+/vendor
+/node_modules
+npm-debug.log
+
+error/
+favicon.ico
+public/
+robots.txt
+stats/
+index.html
