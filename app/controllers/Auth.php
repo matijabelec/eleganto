@@ -20,6 +20,10 @@ class Auth extends Controller
     
     public function login(ViewFactory $view)
     {
+        if($this->gatekeeper->isLoggedIn() ) {
+            return $this->response->redirect($this->urlBuilder->toRoute('home') );
+        }
+        
         $messages = $this->session->getFlash('messages');
         return $view->create('security.login', ['errors' => $messages]);
     }
