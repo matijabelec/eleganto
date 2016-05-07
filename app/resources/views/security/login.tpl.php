@@ -27,7 +27,7 @@
                     <label for="password" class="mb-input__label"><i class="material-icons">vpn_key</i></label>
                 </div>
                 <div class="login-form__actions">
-                    <input ng-click="cfl.login(cfl.user)" type="submit" value="Login" class="mb-input--submit mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" />
+                    <input ng-click="cfl.login(cfl.user)" type="submit" value="Login" class="mb-input--submit mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect" />
                     <input ng-click="cfl.reset()" type="button" value="Reset" class="mb-input--reset mdl-button mdl-js-button mdl-js-ripple-effect" />
                 </div>
             </div>
