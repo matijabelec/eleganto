@@ -4,7 +4,7 @@
     <meta charset="{{ $__charset__ }}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
     
-    <title>Eleganto</title>
+    <title>Home - Eleganto</title>
     
     <link rel="stylesheet" href="//fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="//code.getmdl.io/1.1.3/material.blue_grey-deep_orange.min.css">
@@ -17,8 +17,18 @@
     <main id="main">
         <div>
             <div class="gfx-logo--shadow"></div>
-            <form action="/login" method="post">
-                <input type="submit" value="Login" class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect" />
+
+            {% if($errors !== null) %}
+                <div class="mb-error-messages--container">
+                    <div class="mb-error-message">
+                        <i class="material-icons mb-error-message__icon">error</i>
+                        <span class="mb-error-message__text">{{ $errors }}</span>
+                    </div>
+                </div>
+            {% endif %}
+
+            <form action="/auth/logout" method="post">
+                <input type="submit" value="Logout" class="mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect" />
             </form>
         </div>
     </main>

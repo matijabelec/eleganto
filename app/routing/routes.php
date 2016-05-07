@@ -2,9 +2,11 @@
 
 $routes->group(['namespace' => 'app\controllers'], function($routes)
 {
-    $routes->get('/', 'IndexCtrl::welcome');
+    $routes->get('/', 'Index::welcome', 'welcome');
     
-    $routes->methods(['GET', 'POST'], '/login', 'AuthCtrl::login', 'login');
-    $routes->methods(['GET', 'POST'], '/logout', 'AuthCtrl::logout', 'logout');
-    $routes->methods(['POST'], '/auth/login_check', 'AuthCtrl::checkLogin', 'login_check');
+    $routes->methods(['GET', 'POST'], '/login', 'Auth::login', 'login');
+    $routes->post('/auth/logout', 'Auth::logout', 'auth_logout');
+    $routes->post('/auth/login_check', 'Auth::checkLogin', 'login_check');
+    
+    $routes->get('/home', 'Account::home', 'home');
 });

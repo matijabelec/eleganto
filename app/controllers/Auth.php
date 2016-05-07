@@ -9,7 +9,7 @@ use mako\auth\Gatekeeper;
 /**
  * Auth controller.
  */
-class AuthCtrl extends Controller
+class Auth extends Controller
 {
     // rules for login form
     private $rules = [
@@ -28,7 +28,8 @@ class AuthCtrl extends Controller
     {
         $post = $this->request->post();
         $validator = $this->validator->create($post, $this->rules);
-        if($validator->isValid() ) {
+        $errors = [];
+        if($validator->isValid($errors) ) {
             $loginStatus = $this->gatekeeper->login($post['username'], $post['password']);
             if($loginStatus === true) {
                 return $this->response->redirect($this->urlBuilder->toRoute('home') );
@@ -45,7 +46,7 @@ class AuthCtrl extends Controller
             $this->session->putFlash('messages', $errorMessage);
             return $this->response->redirect($this->urlBuilder->toRoute('login') );
         }
-        $this->session->putFlash('messages', 'Invalid data entered!');
+        $this->session->putFlash('messages', 'Invalid data entered!' . implode('|', $errors) );
         return $this->response->redirect($this->urlBuilder->toRoute('login') );
     }
     

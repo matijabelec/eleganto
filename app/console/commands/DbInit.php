@@ -33,7 +33,7 @@ class DbInit extends Command
         }
         
         // create "root" user
-        $user = $this->gatekeeper->createUser('matijabelec1@gmail.com', 'root', 'belec', true);
+        $user = $this->gatekeeper->createUser('matijabelec1@gmail.com', 'root', 'belec1', true);
         
         // create group
         if(!$this->gatekeeper->createGroup('superadmin')->addUser($user) ) {

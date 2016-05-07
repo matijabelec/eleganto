@@ -8,7 +8,7 @@ use mako\view\ViewFactory;
 /**
  * Welcome controller.
  */
-class IndexCtrl extends Controller
+class Index extends Controller
 {
     /**
      * Welcome route.
