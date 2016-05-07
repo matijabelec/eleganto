@@ -123,6 +123,7 @@ return
 	'commands' =>
 	[
 		'greeting' => 'app\console\commands\Greeting',
+                'db.init' => 'app\console\commands\DbInit',
 	],
 
 	/**
