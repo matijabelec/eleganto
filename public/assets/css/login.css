@@ -65,7 +65,11 @@ main#main{
     /*background-color: #2ca05a;*/
 }
 .mb-input--submit{
+    color: #ffffff;
     background-color: #2ca05a;
+}
+.mb-input--submit:hover{
+    color: #2ca05a;
 }
 
 .mb-input__field{

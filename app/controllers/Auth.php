@@ -50,7 +50,7 @@ class Auth extends Controller
             $this->session->putFlash('messages', $errorMessage);
             return $this->response->redirect($this->urlBuilder->toRoute('login') );
         }
-        $this->session->putFlash('messages', 'Invalid data entered!' . implode('|', $errors) );
+        $this->session->putFlash('messages', 'Invalid data entered!');
         return $this->response->redirect($this->urlBuilder->toRoute('login') );
     }
     
