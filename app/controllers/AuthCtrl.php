@@ -48,4 +48,13 @@ class AuthCtrl extends Controller
         $this->session->putFlash('messages', 'Invalid data entered!');
         return $this->response->redirect($this->urlBuilder->toRoute('login') );
     }
+    
+    public function logout(ViewFactory $view)
+    {
+        if($this->gatekeeper->isLoggedIn() ) {
+            $this->gatekeeper->logout();
+            $this->session->putFlash('messages', 'Successfully logged out!');
+        }
+        return $this->response->redirect($this->urlBuilder->toRoute('login') );
+    }
 }
