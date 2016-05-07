@@ -13,22 +13,33 @@
     <script defer src="//code.getmdl.io/1.1.3/material.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.min.js"></script>
 </head>
-<body ng-app="appEleganto">
+<body>
     <main id="main">
-        <form class="login-form" novalidate>
-            <div ng-controller="controllersFormsLogin as cfl" class="login-form__content">
+        <form class="login-form" action="/auth/login_check" method="post">
+            <div class="login-form__content">
                 <div class="gfx-logo--shadow"></div>
+                
+                {% if($errors !== null) %}
+                    <div class="mb-error-messages--container">
+                        <div class="mb-error-message">
+                            <i class="material-icons mb-error-message__icon">error</i>
+                            <span class="mb-error-message__text">{{ $errors }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                
                 <div class="mb-input">
-                    <input ng-model="cfl.user.username" type="text" name="username" value=" " class="mb-input__field mb-input__field--username" autofocus />
+                    <input type="text" name="username" minlength="6" maxlength="60" class="mb-input__field mb-input__field--username" autofocus required />
                     <label for="username" class="mb-input__label"><i class="material-icons">person</i></label>
                 </div>
                 <div class="mb-input">
-                    <input ng-model="cfl.user.password" type="password" name="password" value=" " class="mb-input__field mb-input__field--password" />
+                    <input type="password" name="password" minlength="6" class="mb-input__field mb-input__field--password" required />
                     <label for="password" class="mb-input__label"><i class="material-icons">vpn_key</i></label>
                 </div>
+                
                 <div class="login-form__actions">
-                    <input ng-click="cfl.login(cfl.user)" type="submit" value="Login" class="mb-input--submit mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect" />
-                    <input ng-click="cfl.reset()" type="button" value="Reset" class="mb-input--reset mdl-button mdl-js-button mdl-js-ripple-effect" />
+                    <input type="submit" value="Login" class="mb-input--submit mdl-button mdl-button--raised mdl-js-button mdl-js-ripple-effect" />
+                    <input type="button" value="Reset" class="mb-input--reset mdl-button mdl-js-button mdl-js-ripple-effect" />
                 </div>
             </div>
         </form>
@@ -38,7 +49,7 @@
         <div class="mdl-mini-footer__left-section">
         <p>
             &copy; Matija Belec
-<!--            {{ round(microtime(true) - MAKO_START, 4) }} seconds | {{ mako\Mako::VERSION }}-->
+            {{ round(microtime(true) - MAKO_START, 4) }} seconds | {{ mako\Mako::VERSION }}
         </p>
         </div>
     </footer>

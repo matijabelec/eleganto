@@ -37,6 +37,21 @@ main#main{
     margin: 8px;
 }
 
+.mb-error-messages--container{
+    display: block;
+    padding: 8px 12px;
+    font-size: 12pt;
+    color: #ffffff;
+    background-color: #dd4444;
+    border-radius: 4px;
+}
+.mb-error-message .mb-error-message__icon{
+    vertical-align: bottom;
+}
+.mb-error-message .mb-error-message__text{
+    font-size: 12pt;
+}
+
 .mb-input{
     display: block;
     position: relative;
