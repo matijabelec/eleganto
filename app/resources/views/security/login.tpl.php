@@ -48,7 +48,7 @@
     <footer id="footer" class="mdl-mini-footer">
         <div class="mdl-mini-footer__left-section">
         <p>
-            &copy; Matija Belec
+            &copy; Matija Belec <br>
             {{ round(microtime(true) - MAKO_START, 4) }} seconds | {{ mako\Mako::VERSION }}
         </p>
         </div>
