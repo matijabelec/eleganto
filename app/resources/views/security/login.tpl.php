@@ -15,30 +15,23 @@
 </head>
 <body ng-app="appEleganto">
     <main id="main">
-        <div ng-controller="controllersFormsLogin">
-            <form class="login-form" novalidate>
-                <div class="login-form__content mdl-card mdl-shadow--2dp">
-                    <header class="mdl-card__title mdl-card--expand">
-                        <h2 class="mdl-card__title-text">Eleganto</h2>
-                    </header>
-                    <div class="mdl-card__supporting-text">
-                        <label for="username" class="mdl-textfield mdl-js-textfield">
-                            Username: 
-                            <input ng-model="user.username" type="text" name="username" value=" " class="mdl-textfield__input" autofocus />
-                        </label>
-
-                        <label for="password" class="mdl-textfield mdl-js-textfield">
-                            Password: 
-                            <input ng-model="user.password" type="password" name="password" value=" " class="mdl-textfield__input" />
-                        </label>
-                    </div>
-                    <div class="mdl-card__actions mdl-card--border">
-                        <input ng-click="reset()" type="button" value="Reset" class="mdl-button mdl-js-button mdl-js-ripple-effect" />
-                        <input ng-click="login(user)" type="submit" value="Login" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" />
-                    </div>
+        <form class="login-form" novalidate>
+            <div ng-controller="controllersFormsLogin as cfl" class="login-form__content">
+                <div class="gfx-logo--shadow"></div>
+                <div class="mb-input">
+                    <input ng-model="cfl.user.username" type="text" name="username" value=" " class="mb-input__field mb-input__field--username" autofocus />
+                    <label for="username" class="mb-input__label"><i class="material-icons">person</i></label>
                 </div>
-            </form>
-        </div>
+                <div class="mb-input">
+                    <input ng-model="cfl.user.password" type="password" name="password" value=" " class="mb-input__field mb-input__field--password" />
+                    <label for="password" class="mb-input__label"><i class="material-icons">vpn_key</i></label>
+                </div>
+                <div class="login-form__actions">
+                    <input ng-click="cfl.login(cfl.user)" type="submit" value="Login" class="mb-input--submit mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect" />
+                    <input ng-click="cfl.reset()" type="button" value="Reset" class="mb-input--reset mdl-button mdl-js-button mdl-js-ripple-effect" />
+                </div>
+            </div>
+        </form>
     </main>
     
     <footer id="footer" class="mdl-mini-footer">
